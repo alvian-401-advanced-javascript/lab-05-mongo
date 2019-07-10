@@ -1,4 +1,4 @@
-const Model = require('./mongo.js');
+const Model = require('../mongo.js')
 const schema = require('./products-schema.js');
 
 
