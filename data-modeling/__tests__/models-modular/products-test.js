@@ -2,7 +2,7 @@ const Categories = require('../../models-singular/categories.js');
 const supergoose = require('../supergoose.js');
 
 
-describe('Categories Model (Singular)', () => {
+describe('Categories Modular (Singular)', () => {
   let model;
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('Categories Model (Singular)', () => {
   // How will you handle both the happy path and edge cases in these tests?
 
   it('can create() a new category', () => {
-    let obj = { name: 'Test Category' };
+    let obj = { name: 'Test Category', description: 'xbox', price: 399, inStock: true };
     return model.create(obj)
       .then(createdRecord => model.get(createdRecord.id))
       .then(founcRecord => {
@@ -22,7 +22,7 @@ describe('Categories Model (Singular)', () => {
   });
 
   it('can get() a category', () => {
-    let obj = { name: 'Test Category' };
+    let obj = { name: 'Test Category', description: 'xbox', price: 399, inStock: true };
     return model.create(obj)
       .then(createdRecord => {
         return model.get(createdRecord._id)
@@ -36,7 +36,7 @@ describe('Categories Model (Singular)', () => {
 
   it('can delete() a category', () => {
 
-    let obj = { name: 'Test Category' };
+    let obj = { name: 'Test Category', description: 'xbox', price: 399, inStock: true };
     return model.create(obj)
       .then(createdObj => {
         return model.delete(createdObj._id)
@@ -46,12 +46,12 @@ describe('Categories Model (Singular)', () => {
 
           });
 
-      })
+      });
 
   });
 
   xit('can update() a category', () => {
-    let obj = { name: 'Test Category' };
+    let obj = { name: 'Test Category', description: 'xbox', price: 399, inStock: true };
     return model.create(obj)
       .then(createdRecord => {
         let updatedRecord = { ...createdRecord, name: 'Update Test', new: true };
@@ -64,7 +64,7 @@ describe('Categories Model (Singular)', () => {
   });
 
   it('can get() all categories when no id is passed', () => {
-    let obj = { name: 'Test Category' };
+    let obj = { name: 'Test Category', description: 'xbox', price: 399, inStock: true };
     return model.create(obj)
       .then(createdRecord => {
         return model.get(createdRecord) //I just passed in the record without an id

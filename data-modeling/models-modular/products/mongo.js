@@ -1,4 +1,5 @@
 'use strict';
+
 class Model {
 
   constructor() {
@@ -17,8 +18,8 @@ class Model {
     return newRecord.save();
   }
 
-  update(_id, record) {
-    return this.schema.findByIdAndUpdate(_id, record);
+  update(id, record) {
+    return this.schema.findByIdAndUpdate(id, {record});
 
   }
 
